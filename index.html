@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Simple Attack Game</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Bootstrap core CSS -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.0/css/mdb.min.css" rel="stylesheet">
+    <!-- APP CSS -->
+    <link rel="stylesheet" href="assets/css/app.css">
+  </head>
+  <body>
+    <div id="app">
+
+      <!-- healthbar start -->
+      <section>
+        <div class="container">
+          <hr>
+          <div class="row">
+              <div class="col-md-6 text-center ">
+                  <h1 class="you font-weight-bold">You</h1>
+                  <div class="healthbar">
+                    <div class="healthbar" style="background-color: #007E33; margin: 0; color: white;" :style="{width: playerHealth + '%'}">
+                        {{ playerHealth }}
+                    </div>
+                  </div>
+              </div>
+              <div class="col-md-6 text-center">
+                  <h1 class="font-weight-bold">MONSTER</h1>
+                  <div class="healthbar">
+                    <div class="healthbar" style="background-color: #007E33;  margin: 0; color: white;" :style="{width: monsterHealth + '%'}">
+                        {{ monsterHealth }}
+                    </div>
+                  </div>
+              </div>
+          </div>
+          <hr>
+        </div>
+      </section>
+      <!-- healthbar end -->
+
+      <!-- start button start -->
+      <section v-if="!gameIsRunning">
+        <div class="container">
+          <div class="row flex-center">
+            <button type="button" id="start-game" @click="startGame" class="btn btn-info btn-lg waves-effect"><i class="fa fa-play mr-1"></i></button>
+          </div>
+        </div>
+      </section>
+      <!-- start button end -->
+
+      <!-- control button start -->
+      <section v-else>
+        <div class="container">
+          <div class="row flex-center">
+            <div class="card text-center">
+              <div class="card-body z-depth-2">
+                <button type="button" @click="attack" class="btn btn-danger waves-effect">ATTACK</button>
+                <button type="button" @click="specialAttack" class="btn btn-warning waves-effect">SPECIAL ATTACK</button>
+                <button type="button" @click="heal" class="btn btn-secondary waves-effect">HEAL</button>
+                <button type="button" @click="giveUp" class="btn btn-default waves-effect">GIVE UP</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- control button end -->
+
+      <!-- action count start -->
+      <section class="log" v-if="turns.length > 0">
+        <div class="container">
+            <div class="row flex-center">
+              <div class="card text-center">
+                <div class="card-body">
+                  <ul>
+                      <li class="z-depth-2" v-for="turn in turns"
+                          :class="{'player-turn': turn.isPlayer, 'monster-turn': !turn.isPlayer}">
+                          <p class="waves-effect">{{ turn.text }}</p>
+                      </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+        </div>
+      </section>
+      <!-- action count end -->
+
+      <section>
+        <div class="footer">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <p><a href="http://khandakerakash.me/">Khandaker Akash</a> Copyright &copy; 2017 All right reserved</p>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- /.footer -->
+      </section>
+
+    </div>
+
+    <!-- JQuery -->
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/popper.js/1.13.0/umd/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.0/js/mdb.min.js"></script>
+    <!-- Vuejs library -->
+    <script src="assets/app/vue.js"></script>
+    <!-- Vue app.js -->
+    <script src="assets/app/app.js"></script>
+  </body>
+</html>
