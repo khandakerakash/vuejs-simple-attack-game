@@ -6,11 +6,11 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Simple Attack Game</title>
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <!-- Bootstrap core CSS -->
-    <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Material Design Bootstrap -->
-    <link href="//cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.0/css/mdb.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+      <!-- Bootstrap core CSS -->
+  <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Material Design Bootstrap -->
+  <link href="assets/css/mdb.min.css" rel="stylesheet">
     <!-- APP CSS -->
     <link rel="stylesheet" href="assets/css/app.css">
   </head>
@@ -25,7 +25,7 @@
               <div class="col-md-6 text-center ">
                   <h1 class="you font-weight-bold">You</h1>
                   <div class="healthbar">
-                    <div class="healthbar" style="background-color: #007E33; margin: 0; color: white;" :style="{width: playerHealth + '%'}">
+                    <div class="healthbar" style="background-color: #007E33; margin: 0; color: white; padding-top: 7px;" :style="{width: playerHealth + '%'}">
                         {{ playerHealth }}
                     </div>
                   </div>
@@ -33,7 +33,7 @@
               <div class="col-md-6 text-center">
                   <h1 class="font-weight-bold">MONSTER</h1>
                   <div class="healthbar">
-                    <div class="healthbar" style="background-color: #007E33;  margin: 0; color: white;" :style="{width: monsterHealth + '%'}">
+                    <div class="healthbar" style="background-color: #007E33;  margin: 0; color: white; padding-top: 7px;" :style="{width: monsterHealth + '%'}">
                         {{ monsterHealth }}
                     </div>
                   </div>
@@ -48,7 +48,7 @@
       <section v-if="!gameIsRunning">
         <div class="container">
           <div class="row flex-center">
-            <button type="button" id="start-game" @click="startGame" class="btn btn-info btn-lg waves-effect"><i class="fa fa-play mr-1"></i></button>
+            <button type="button" id="start-game" @click="startGame" class="btn btn-info btn-lg waves-effect"><i class="fas fa-play mr-1"></i></button>
           </div>
         </div>
       </section>
@@ -95,7 +95,9 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-12">
-                            <p><a href="http://khandakerakash.me/">Khandaker Akash</a> Copyright &copy; 2017 All right reserved</p>
+                            <p class="text-center">
+                              <a href="http://khandakerakash.xyz/">Khandaker Akash</a> 
+                              Copyright &copy; {{ new Date().getFullYear() }} All right reserved</p>
                         </div>
                     </div>
                 </div>
@@ -105,13 +107,13 @@
     </div>
 
     <!-- JQuery -->
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <!-- Bootstrap tooltips -->
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/popper.js/1.13.0/umd/popper.min.js"></script>
-    <!-- Bootstrap core JavaScript -->
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <!-- MDB core JavaScript -->
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.0/js/mdb.min.js"></script>
+    <script type="text/javascript" src="assets/js/jquery-3.4.0.min.js"></script>
+  <!-- Bootstrap tooltips -->
+  <script type="text/javascript" src="assets/js/popper.min.js"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+  <!-- MDB core JavaScript -->
+  <script type="text/javascript" src="assets/js/mdb.min.js"></script>
     <!-- Vuejs library -->
     <script src="assets/app/vue.js"></script>
     <!-- Vue app.js -->
